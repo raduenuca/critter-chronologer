@@ -1,0 +1,24 @@
+# Server port is arbitrary
+server:
+  port: 8082
+
+# Data Source Setup
+# Note: Users must create a mysql db that they will reference here, create a user that has access to it on localhost
+#       and provide the credentials below to access it
+
+spring:
+  datasource:
+    # H2
+    # url: jdbc:h2:~/critter;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:mysql://localhost:3306/critter?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
